@@ -42,6 +42,8 @@ dependencies:
   sembast: ^3.4.4
   path: ^1.8.2
   sembast_sqflite: ^2.2.0
+  esc_pos_printer: ^4.1.0
+  esc_pos_utils: ^1.1.0
 
 dev_dependencies:
   flutter_test:

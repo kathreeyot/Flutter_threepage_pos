@@ -4,6 +4,7 @@ import 'package:flutter_basic_pos/navbar_sidebar/nav_bar.dart';
 import '../database/data_base.dart';
 import '../navbar_sidebar/side_bar.dart';
 import '../required data/menu_item.dart';
+import 'check_bill.dart';
 import 'image_picker.dart';
 
 class AddMenuScreen extends StatefulWidget {
@@ -145,6 +146,16 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
     );
   }
 
+  void _placeOrder() {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => CheckBillScreen(selectedItems: selectedItems),
+    ),
+  );
+}
+
+
   void _addMenuItem() {
     setState(() {
       final newItem = MenuItem('New Item', 'Description', 0.0, null);
@@ -197,7 +208,7 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Navbar(title: 'Add Menu'),
+      appBar: const Navbar(title: 'HomeScreen'),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -297,7 +308,7 @@ class _AddMenuScreenState extends State<AddMenuScreen> {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.purple),
                         child: const Text('Place Order'),
-                        onPressed: () {},
+                        onPressed: _placeOrder, // Update the onPressed callback
                       ),
                       Text(
                         '${_calculateTotalPrice().toStringAsFixed(2)}บาท',

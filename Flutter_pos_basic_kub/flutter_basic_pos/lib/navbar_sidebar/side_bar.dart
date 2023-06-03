@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic_pos/FormScreen/add_menu_screen.dart';
 import 'package:flutter_basic_pos/FormScreen/check_bill.dart';
 import 'package:flutter_basic_pos/FormScreen/home_screen.dart';
-import 'package:flutter_basic_pos/FormScreen/order_screen.dart';
+
 import 'package:flutter_basic_pos/FormScreen/summary_price.dart';
 
 class SideBar extends StatelessWidget {
@@ -27,34 +27,20 @@ class SideBar extends StatelessWidget {
               onTap: () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: ((context) => const HomeScreen())))),
-          ListTile(
-              leading: const Icon(Icons.add_circle),
-              iconColor: Colors.white,
-              title: const Text(''),
-              textColor: Colors.white,
-              onTap: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) =>  AddMenuScreen(onItemAdded: (MenuItem ) {  },))))),
+                      builder: ((context) => AddMenuScreen(
+                            onItemAdded: (MenuItem) {},
+                          ))))),
           ListTile(
               leading: const Icon(Icons.account_balance_wallet),
               iconColor: Colors.white,
               title: const Text(''),
               textColor: Colors.white,
-              onTap: () => Navigator.pushReplacement(
+              onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: ((context) => const CheckBill())))),
-          ListTile(
-              leading: const Icon(Icons.app_registration),
-              iconColor: Colors.white,
-              title: const Text(''),
-              textColor: Colors.white,
-              onTap: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) => const OrderScreen())))),
+                      builder: ((context) => const CheckBillScreen(
+                            selectedItems: [],
+                          ))))),
           ListTile(
               leading: const Icon(Icons.account_balance),
               iconColor: Colors.white,

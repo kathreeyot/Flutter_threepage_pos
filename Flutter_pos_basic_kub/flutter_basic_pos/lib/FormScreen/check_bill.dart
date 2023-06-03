@@ -1,23 +1,50 @@
 import 'package:flutter/material.dart';
+import '../required data/menu_item.dart';
+import 'package:esc_pos_printer/esc_pos_printer.dart';
+import 'package:esc_pos_utils/esc_pos_utils.dart';
 
-import 'package:flutter_basic_pos/navbar_sidebar/nav_bar.dart';
+class CheckBillScreen extends StatelessWidget {
+  final List<MenuItem> selectedItems;
 
-import '../navbar_sidebar/side_bar.dart';
+  const CheckBillScreen({Key? key, required this.selectedItems})
+      : super(key: key);
 
-class CheckBill extends StatefulWidget {
-  const CheckBill({super.key});
-
-  @override
-  State<CheckBill> createState() => _CheckBillState();
-}
-
-class _CheckBillState extends State<CheckBill> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const Navbar(title: "Check Bill"),
-        body: Column(children: [
-          SideBar(),
-        ]));
+      appBar: AppBar(
+        title: const Text('Order Confirmation'),
+      ),
+      body: ListView.builder(
+        itemCount: selectedItems.length,
+        itemBuilder: (ctx, index) {
+          final selectedItem = selectedItems[index];
+          return ListTile(
+            title: Text(selectedItem.name),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(selectedItem.description),
+                Text(
+                  'Quantity: ${selectedItem.quantity}',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            trailing: Text(
+              '${(selectedItem.price * selectedItem.quantity).toStringAsFixed(2)} บาท',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          );
+        },
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Text('Print Bill'),
+        ),
+      ),
+    );
   }
 }
