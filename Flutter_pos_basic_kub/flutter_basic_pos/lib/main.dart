@@ -1,4 +1,5 @@
-import 'package:flutter_basic_pos/FormScreen/home_screen.dart';
+import 'package:flutter_basic_pos/FormScreen/add_menu_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const PosApp());
@@ -13,7 +14,7 @@ class PosApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  const HomeScreen(),
+      home:   AddMenuScreen(onItemAdded: (MenuItem ) {  },),
     );
   }
 }
