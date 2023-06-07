@@ -9,3 +9,5 @@
 - ⚡ **Thank for reading**
 
 - 🌱 This project is not complete
+
+- 🌱 This project use only 3 page Basic pos app
