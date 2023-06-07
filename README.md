@@ -11,3 +11,5 @@
 - 🌱 This project is not complete
 
 - 🌱 This project use only 3 page Basic pos app
+
+- 🌱 This project use Flutter(dart)
